@@ -7,11 +7,11 @@ source_code_url: https://github.com/chrisfuller/bitrise-step-xcodebuild
 support_url: https://github.com/chrisfuller/bitrise-step-xcodebuild/issues
 
 host_os_tags:
-  - osx
+- osx
 
 type_tags:
-  - build
-  - test
+- build
+- test
 
 is_requires_admin_user: false
 is_always_run: false
