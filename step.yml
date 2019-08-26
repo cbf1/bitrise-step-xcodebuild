@@ -22,21 +22,21 @@ toolkit:
     entry_file: step.sh
 
 inputs:
-  - xc_option_workspace: "${BITRISE_PROJECT_PATH}"
+  - xcodebuild_workspace: "${BITRISE_PROJECT_PATH}"
     opts:
       title: -workspace
       description: |
-        The Xcode workspace.
+        The workspace.
       is_expand: true
       is_required: true
-  - xc_option_scheme: "${BITRISE_SCHEME}"
+  - xcodebuild_scheme: "${BITRISE_SCHEME}"
     opts:
       title: -scheme
       description: |
-        The Xcode scheme.
+        The scheme.
       is_expand: true
       is_required: true
-  - xc_option_sdk: iphonesimulator
+  - xcodebuild_sdk: iphonesimulator
     opts:
       title: -sdk
       description: |
@@ -45,7 +45,7 @@ inputs:
       is_required: true
       value_options:
       - iphonesimulator
-  - xc_option_destination: "platform=iOS Simulator,name=${SIMULATOR_DEVICE},OS=${SIMULATOR_OS_VERSION}"
+  - xcodebuild_destination: "platform=iOS Simulator,name=${SIMULATOR_DEVICE},OS=${SIMULATOR_OS_VERSION}"
     opts:
       title: -destination
       description: |
@@ -63,14 +63,20 @@ inputs:
     opts:
       title: Log
       description: |
-        The raw xcodebuild output log.
+        The raw output log.
       is_expand: true
       is_required: true
   - xcodebuild_output_formatter: cat -u
     opts:
       title: Formatter
       description: |
-        The formatter to pipe raw xcodebuild output through.
+        The formatter to pipe raw output through.
         Use `cat -u` if no formatting is desired.
       is_expand: true
       is_required: true
+outputs:
+- XCRESULT_BUNDLE_PATH:
+  opts:
+    title: Result Bundle Path
+    description: |-
+      The result bundle path.
