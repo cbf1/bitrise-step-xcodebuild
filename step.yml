@@ -1,6 +1,6 @@
 title: xcodebuild
-summary: xcodebuild
-description: xcodebuild
+summary: Execute `xcodebuild`
+description: Execute `xcodebuild`
 
 website: https://github.com/chrisfuller/bitrise-step-xcodebuild
 source_code_url: https://github.com/chrisfuller/bitrise-step-xcodebuild
