@@ -2,7 +2,11 @@
 
 set -o pipefail
 
-XCRESULT_BUNDLE_PATH="$(mktemp -d)/Test.xcresult"
+XCRESULT_BUNDLE_TEMP="$(mktemp -d)"
+XCRESULT_BUNDLE_NAME="Tests.xcresult"
+XCRESULT_BUNDLE_PATH="${XCRESULT_BUNDLE_TEMP}/${XCRESULT_BUNDLE_NAME}"
+
+envman add --key XCRESULT_BUNDLE_PATH --value "${XCRESULT_BUNDLE_PATH}"
 
 env NSUnbufferedIO=YES \
 xcodebuild \
@@ -15,4 +19,7 @@ xcodebuild \
 | tee "${raw_xcodebuild_output}" \
 | "${xcodebuild_output_formatter}"
 
-envman add --key XCRESULT_BUNDLE_PATH --value "${XCRESULT_BUNDLE_PATH}"
+(
+  cd "${XCRESULT_BUNDLE_TEMP}"
+  exec zip -r "${BITRISE_DEPLOY_DIR}/xcresult.zip" "${XCRESULT_BUNDLE_NAME}"
+)
