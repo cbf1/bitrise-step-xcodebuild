@@ -61,16 +61,16 @@ inputs:
       is_required: true
   - raw_xcodebuild_output: "${BITRISE_DEPLOY_DIR}/raw-xcodebuild-output.log"
     opts:
-      title: Log
+      title: Raw Output
       description: |
-        The raw output log.
+        The raw output.
       is_expand: true
       is_required: true
   - xcodebuild_output_formatter: cat -u
     opts:
-      title: Formatter
+      title: Output Formatter
       description: |
-        The formatter to pipe raw output through.
+        The output formatter.
         Use `cat -u` if no formatting is desired.
       is_expand: true
       is_required: true
