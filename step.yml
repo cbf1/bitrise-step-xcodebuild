@@ -22,58 +22,59 @@ toolkit:
     entry_file: step.sh
 
 inputs:
-  - xcodebuild_workspace: "${BITRISE_PROJECT_PATH}"
-    opts:
-      title: -workspace
-      description: |
-        The workspace.
-      is_expand: true
-      is_required: true
-  - xcodebuild_scheme: "${BITRISE_SCHEME}"
-    opts:
-      title: -scheme
-      description: |
-        The scheme.
-      is_expand: true
-      is_required: true
-  - xcodebuild_sdk: iphonesimulator
-    opts:
-      title: -sdk
-      description: |
-        The base SDK.
-      is_expand: true
-      is_required: true
-      value_options:
-      - iphonesimulator
-  - xcodebuild_destination: "platform=iOS Simulator,name=${SIMULATOR_DEVICE},OS=${SIMULATOR_OS_VERSION}"
-    opts:
-      title: -destination
-      description: |
-        The destination.
-      is_expand: true
-      is_required: true
-  - xcodebuild_actions: test
-    opts:
-      title: Actions
-      description: |
-        The actions.
-      is_expand: true
-      is_required: true
-  - raw_xcodebuild_output: "${BITRISE_DEPLOY_DIR}/raw-xcodebuild-output.log"
-    opts:
-      title: Raw Output
-      description: |
-        The raw output.
-      is_expand: true
-      is_required: true
-  - xcodebuild_output_formatter: cat -u
-    opts:
-      title: Output Formatter
-      description: |
-        The output formatter.
-        Use `cat -u` if no formatting is desired.
-      is_expand: true
-      is_required: true
+- xcodebuild_workspace: "${BITRISE_PROJECT_PATH}"
+  opts:
+    title: -workspace
+    description: |
+      The workspace.
+    is_expand: true
+    is_required: true
+- xcodebuild_scheme: "${BITRISE_SCHEME}"
+  opts:
+    title: -scheme
+    description: |
+      The scheme.
+    is_expand: true
+    is_required: true
+- xcodebuild_sdk: iphonesimulator
+  opts:
+    title: -sdk
+    description: |
+      The base SDK.
+    is_expand: true
+    is_required: true
+    value_options:
+    - iphonesimulator
+- xcodebuild_destination: "platform=iOS Simulator,name=${SIMULATOR_DEVICE},OS=${SIMULATOR_OS_VERSION}"
+  opts:
+    title: -destination
+    description: |
+      The destination.
+    is_expand: true
+    is_required: true
+- xcodebuild_actions: test
+  opts:
+    title: Actions
+    description: |
+      The actions.
+    is_expand: true
+    is_required: true
+- raw_xcodebuild_output: "${BITRISE_DEPLOY_DIR}/raw-xcodebuild-output.log"
+  opts:
+    title: Raw Output
+    description: |
+      The raw output.
+    is_expand: true
+    is_required: true
+- xcodebuild_output_formatter: cat -u
+  opts:
+    title: Output Formatter
+    description: |
+      The output formatter.
+      Use `cat -u` if no formatting is desired.
+    is_expand: true
+    is_required: true
+
 outputs:
 - XCRESULT_BUNDLE_PATH:
   opts:
