@@ -1,6 +1,6 @@
-#!/bin/bash -ex
+#!/bin/bash
 
-set -o pipefail
+set -euxo pipefail
 
 XCRESULT_BUNDLE_TEMP="$(mktemp -d)"
 XCRESULT_BUNDLE_NAME="Tests.xcresult"
