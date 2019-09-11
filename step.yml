@@ -24,53 +24,54 @@ toolkit:
 inputs:
 - xcodebuild_workspace: "${BITRISE_PROJECT_PATH}"
   opts:
-    title: -workspace
+    title: The Xcode workspace.
     description: |
-      The workspace.
+      The value of the `-workspace` option.
     is_expand: true
     is_required: true
 - xcodebuild_scheme: "${BITRISE_SCHEME}"
   opts:
-    title: -scheme
+    title: The Xcode scheme.
     description: |
-      The scheme.
+      The value of the `-scheme` option.
     is_expand: true
     is_required: true
 - xcodebuild_sdk: iphonesimulator
   opts:
-    title: -sdk
+    title: The Base SDK.
     description: |
-      The base SDK.
+      The value of the `-sdk` option.
     is_expand: true
     is_required: true
     value_options:
     - iphonesimulator
 - xcodebuild_destination: "platform=iOS Simulator,name=${SIMULATOR_DEVICE},OS=${SIMULATOR_OS_VERSION}"
   opts:
-    title: -destination
+    title: The destination specifier.
     description: |
-      The destination.
+      The value of the `-destination` option.
+      Provide a comma-separated set of key=value pairs describing the destination to use.
     is_expand: true
     is_required: true
 - xcodebuild_actions: test
   opts:
-    title: Actions
+    title: The `xcodebuild` actions to perform.
     description: |
-      The actions.
+      The actions are passed to the `xcodebuild` command.
     is_expand: true
     is_required: true
 - raw_xcodebuild_output: "${BITRISE_DEPLOY_DIR}/raw-xcodebuild-output.log"
   opts:
-    title: Raw Output
+    title: The path to store the raw `xcodebuild` output.
     description: |
-      The raw output.
+      Store the raw `xcodebuild` output so it can subsequently be deployed as an artifact.
+      The raw `xcodebuild` output is useful for debugging, especially when the standard output is formatted.
     is_expand: true
     is_required: true
 - xcodebuild_output_formatter: cat -u
   opts:
-    title: Output Formatter
+    title: The formatter to pipe standard `xcodebuild` output through.
     description: |
-      The output formatter.
       Use `cat -u` if no formatting is desired.
     is_expand: true
     is_required: true
